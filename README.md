@@ -8,7 +8,7 @@ HTTP Toolkit server is patched so Pro CLI/MCP operations keep working.
 
 > **Not affiliated with HTTP Toolkit or Toolshed Labs SLU.**
 > HTTP Toolkit is © Toolshed Labs SLU and licensed under
-> [AGPL-3.0-or-later](https://github.com/httptoolkit/httptoolkit/blob/master/LICENSE).
+> [AGPL-3.0-or-later](https://github.com/httptoolkit/httptoolkit-desktop/blob/master/LICENSE).
 > This repository only redistributes modified builds for personal use.
 
 ---
