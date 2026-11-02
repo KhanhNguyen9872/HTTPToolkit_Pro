@@ -1,0 +1,13 @@
+# Release artifacts are published via GitHub Releases, not committed
+*.deb
+*.exe
+*.blockmap
+*.AppImage
+*.dmg
+*.zip
+*.tar.gz
+
+# Local build output
+dist/
+out/
+node_modules/
