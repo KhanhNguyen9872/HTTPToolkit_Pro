@@ -20,7 +20,7 @@ Get both files from the [**v1.27.2 release**](https://github.com/KhanhNguyen9872
 | Platform | File | Size | SHA-256 |
 |---|---|---|---|
 | Linux x64 (Debian/Ubuntu) | [`HttpToolkit-1.27.2-pro-amd64.deb`](https://github.com/KhanhNguyen9872/HTTPToolkit_Pro/releases/download/v1.27.2/HttpToolkit-1.27.2-pro-amd64.deb) | 142 MB | `1c710eda4c10868d74a699029b017db4e45cdc7961e6f0170dccc1de55861ae4` |
-| Windows x64 | [`HttpToolkit-1.27.2-pro.exe`](https://github.com/KhanhNguyen9872/HTTPToolkit_Pro/releases/download/v1.27.2/HttpToolkit-1.27.2-pro.exe) | 182 MB | `58782b13623585835c047d8c4854e29c4758742af29b7c337c198ccb726b4d83` |
+| Windows x64 | [`HttpToolkit-1.27.2-pro.exe`](https://github.com/KhanhNguyen9872/HTTPToolkit_Pro/releases/download/v1.27.2/HttpToolkit-1.27.2-pro.exe) | 182 MB | `eb322c5d25f967febcfdc10f5d61eaed667fbcad1c7690781c65ab34fde67435` |
 
 Verify a download:
 
@@ -115,6 +115,9 @@ subscription and no upgrade prompts.
   and `httptoolkit-ctl events list` works.
 - Windows: extracted the built installer's `app-64.7z` payload and confirmed the
   packaged `app.asar` contains the injection and the server bundle is patched.
+  The packaged executable has `EnableEmbeddedAsarIntegrityValidation` disabled,
+  so Electron accepts the repacked `app.asar` (verified past the integrity check
+  under Wine).
 
 ---
 
@@ -128,6 +131,20 @@ subscription and no upgrade prompts.
 - **Unsigned binaries.** SmartScreen/Gatekeeper-style warnings are expected.
 - **Updates:** the `.deb` is version `1.27.2-pro1`. Installing a newer official
   package replaces this build; hold the package if you want to keep it.
+
+---
+
+## Changelog
+
+### 2026-11-02 — Windows startup fix
+
+The first Windows build could install but failed to launch with an Electron
+ASAR integrity error, because the repacked `app.asar` no longer matched the hash
+baked into the app executable. Fixed by disabling the
+`EnableEmbeddedAsarIntegrityValidation` fuse in the packaged executable.
+
+Re-download and reinstall `HttpToolkit-1.27.2-pro.exe` if you used the earlier
+build.
 
 ---
 
